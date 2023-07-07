@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangoProject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangoProject.settings_produccion' if os.environ.get(
+    'DJANGO_DEBUG') == 'False' else 'djangoProject.settings')
 
 application = get_wsgi_application()

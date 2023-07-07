@@ -61,8 +61,7 @@ ROOT_URLCONF = 'djangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,6 +85,29 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DB_NAME = os.getenv('DB_NAME', 'dbapimetrics')
+# DB_USER = os.getenv('DB_USER', 'integro')
+# DB_PASSWORD = os.getenv('DB_PASSWORD', 'integro123.')
+# DB_HOST = os.getenv('DB_HOST', '127.0.0.1')
+# DB_PORT = os.getenv('DB_PORT', '3306')
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': DB_NAME,
+#         'USER': DB_USER,
+#         'PASSWORD': DB_PASSWORD,
+#         'HOST': DB_HOST,
+#         'PORT': DB_PORT,
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#             'sql_mode': 'traditional',
+#             'use_unicode': True,
+#             # 'client_encoding': 'utf8mb4'
+#         },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
