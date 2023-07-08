@@ -21,7 +21,13 @@ def create_listado_factura(factura: Factura) -> ListadoFactura:
     file_name = factura.cloud_name.split('/')[-1]
     # file_dir = sys_path + f'/{file_name}'
     dataframe_factura: DataFrame = pd.read_excel(file_name)
-    dataframe_listado_factura: DataFrame = dataframe_factura.groupby('FORNECEDORES').sum('VALOR S/IVA')
+    # dataframe_listado_factura: DataFrame = dataframe_factura.groupby('FORNECEDORES').sum('VALOR S/IVA')
+    dataframe_pivot: DataFrame = DataFrame(dataframe_factura.values)
+    dataframe_listado_factura = DataFrame({
+        'FORNECEDORES': [i for i in dataframe_pivot[0] if i != 'FORNECEDORES'],
+        'VALOR S/IVA': [i for i in dataframe_pivot[3] if i != 'VALOR S/IVA'],
+        'VALOR C/IVA': [i for i in dataframe_pivot[4] if i != 'VALOR C/IVA']
+    }, )
 
     # 3 - crear objeto Listado factura
     listado_factura = ListadoFactura()
